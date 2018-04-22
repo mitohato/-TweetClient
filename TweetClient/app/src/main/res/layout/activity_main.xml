@@ -4,9 +4,9 @@
 
     <data>
 
-        <variable
-            name="view_model"
-            type="com.nitok.ict.tweetclient.TweetViewModel"/>
+        <!--<variable-->
+        <!--name="view_model"-->
+        <!--type="com.nitok.ict.tweetclient.TweetViewModel"/>-->
 
     </data>
 
@@ -15,8 +15,13 @@
         android:layout_height="match_parent"
         tools:context=".MainActivity">
 
+        <FrameLayout
+            android:id="@+id/content_frame"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--android:text="@={view_model.tweetText}"-->
         <EditText
-            android:text="@={view_model.tweetText}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="password"
