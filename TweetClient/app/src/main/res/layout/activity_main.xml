@@ -4,6 +4,10 @@
 
     <data>
 
+        <variable
+            name="view_model"
+            type="com.nitok.ict.tweetclient.TweetViewModel"/>
+
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -12,6 +16,7 @@
         tools:context=".MainActivity">
 
         <EditText
+            android:text="@={view_model.tweetText}"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:autofillHints="password"
