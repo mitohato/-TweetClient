@@ -36,7 +36,6 @@ dependencies {
     implementation "org.twitter4j:twitter4j-core:$twitter4j_version"
     implementation "org.twitter4j:twitter4j-async:$twitter4j_version"
     implementation "org.twitter4j:twitter4j-stream:$twitter4j_version"
-    implementation 'com.github.rettyeng.redux-kt:redux-kt-core:0.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
