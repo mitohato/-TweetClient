@@ -7,6 +7,24 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+    private fun findOrCreateViewModel(): TweetViewModel {
+        
+        val retainedViewModel = supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder
+    
+        return if (retainedViewModel.viewmodel != null) {
+            retainedViewModel.viewmodel!!
+        } else {
+            val viewModel = TweetViewModel()
+            
+            ActivityUtils.addFragmentToActivity(
+                    supportFragmentManager,
+                    ViewModelHolder.createContainer(viewModel),
+                    TWEET_VIEWMODEL_TAG
+            )
+    
+            viewModel
+        }
+    }
     override fun onStartWriteTweet() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
