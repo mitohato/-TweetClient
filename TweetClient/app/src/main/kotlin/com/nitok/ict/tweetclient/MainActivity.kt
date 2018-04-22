@@ -1,12 +1,20 @@
 package com.nitok.ict.tweetclient
 
+import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
+    private lateinit var tweetViewModel: TweetViewModel
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        
+        tweetViewModel = findOrCreateViewModel()
+        
+    }
+    
     private fun findOrCreateViewModel(): TweetViewModel {
         
         val retainedViewModel = supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder
