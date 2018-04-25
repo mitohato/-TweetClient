@@ -11,6 +11,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         
+//        val tweetFragment = findOrCreateViewFragment()
+        
         tweetViewModel = findOrCreateViewModel()
         
     }
@@ -32,7 +34,12 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     
             viewModel
         }
+//    }
+//
+//    private fun findOrCreateViewFragment(): TweetFragment {
+////        var tweetFragment = supportFragmentManager.findFragmentById(R.id.content_frame)
     }
+    
     override fun onStartWriteTweet() {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
