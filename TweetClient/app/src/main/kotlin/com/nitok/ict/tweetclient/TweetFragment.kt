@@ -5,14 +5,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.nitok.ict.tweetclient.databinding.ActivityMainBinding
 
 class TweetFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         val view = inflater.inflate(R.layout.activity_main, container, false)
-        
-        val activityMainBinding = ActivityMainBinding.bind(view)
-        
+
+//        val activityMainBinding = DataBindingUtil.bind<ActivityMainBinding>(view)
+//        activityMainBinding?.view_model = TweetViewModel
         
         return view
     }
