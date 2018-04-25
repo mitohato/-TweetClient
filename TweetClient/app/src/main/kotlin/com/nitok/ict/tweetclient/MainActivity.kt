@@ -50,9 +50,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     
     companion object {
         
-        val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
-        
-        val DELETE_RESULT_OK = Activity.RESULT_FIRST_USER + 2
+        const val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
         
         val EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 3
     }
