@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         return if (retainedViewModel.viewmodel != null) {
             retainedViewModel.viewmodel!!
         } else {
-            val viewModel = TweetViewModel()
+            val viewModel = TweetViewModel(this)
             
             ActivityUtils.addFragmentToActivity(
                     supportFragmentManager,
