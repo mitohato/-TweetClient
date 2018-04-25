@@ -17,4 +17,10 @@ class TweetViewModel(context: Context) : BaseObservable() {
         get() {
             return true
         }
+    
+    fun tweet() {
+    }
+    
+    fun start() {
+    }
 }
