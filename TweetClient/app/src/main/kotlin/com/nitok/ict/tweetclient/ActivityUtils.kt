@@ -23,7 +23,7 @@ import android.support.v4.app.FragmentManager
  * This provides methods to help Activities load their UI.
  */
 object ActivityUtils {
-
+    
     /**
      * The `fragment` is added to the container view with id `frameId`. The operation is
      * performed by the `fragmentManager`.
@@ -37,7 +37,7 @@ object ActivityUtils {
         transaction.add(frameId, fragment)
         transaction.commit()
     }
-
+    
     /**
      * The `fragment` is added to the container view with id `frameId`. The operation is
      * performed by the `fragmentManager`.
