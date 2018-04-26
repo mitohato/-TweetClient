@@ -10,7 +10,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        
+
 //        val tweetFragment = findOrCreateViewFragment()
         
         tweetViewModel = findOrCreateViewModel()
@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         
         val retainedViewModel =
                 supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder
-    
+        
         return if (retainedViewModel.viewmodel != null) {
             retainedViewModel.viewmodel!!
         } else {
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
                     ViewModelHolder.createContainer(viewModel),
                     TWEET_VIEWMODEL_TAG
             )
-    
+            
             viewModel
         }
 //    }
