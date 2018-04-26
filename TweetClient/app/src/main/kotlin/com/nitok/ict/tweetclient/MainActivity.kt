@@ -19,7 +19,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     
     private fun findOrCreateViewModel(): TweetViewModel {
         
-        val retainedViewModel = supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder
+        val retainedViewModel =
+                supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder
     
         return if (retainedViewModel.viewmodel != null) {
             retainedViewModel.viewmodel!!
