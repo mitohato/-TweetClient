@@ -1,35 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools">
 
-    <data>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
 
-        <!--<variable-->
-        <!--name="view_model"-->
-        <!--type="com.nitok.ict.tweetclient.TweetViewModel"/>-->
-
-    </data>
-
-    <android.support.constraint.ConstraintLayout
+    <FrameLayout
+        android:id="@+id/content_frame"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        android:layout_height="match_parent"/>
 
-        <FrameLayout
-            android:id="@+id/content_frame"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
 
-        <!--android:text="@={view_model.tweetText}"-->
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:autofillHints="password"
-            android:background="#00000000"
-            android:gravity="top|start"
-            android:hint="@string/tweet"
-            android:inputType="text"
-            tools:targetApi="o"/>
-
-    </android.support.constraint.ConstraintLayout>
-</layout>
+</android.support.constraint.ConstraintLayout>
