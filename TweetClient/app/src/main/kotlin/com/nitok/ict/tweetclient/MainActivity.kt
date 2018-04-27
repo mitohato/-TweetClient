@@ -35,10 +35,24 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             
             viewModel
         }
-//    }
-//
-//    private fun findOrCreateViewFragment(): TweetFragment {
-////        var tweetFragment = supportFragmentManager.findFragmentById(R.id.content_frame)
+    }
+    
+    //
+    private fun findOrCreateViewFragment(): TweetFragment {
+        var tweetFragment: TweetFragment? =
+                supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment
+        
+        if (tweetFragment == null) {
+            tweetFragment = TweetFragment.newInstance()
+
+//            ActivityUtils.addFragmentToActivity(
+//                    supportFragmentManager,
+//                    tweetFragment,
+//                    R.id.content_frame
+//            )
+        }
+        
+        return tweetFragment
     }
     
     override fun onStartWriteTweet() {
