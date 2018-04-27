@@ -21,8 +21,8 @@ class TweetFragment : Fragment() {
                 container, false
         )
         
-        val activityMainBinding = DataBindingUtil.bind<FragmentTweetBinding>(view)
-        activityMainBinding?.viewmodel = viewModel
+        val fragmentTweetBinding = DataBindingUtil.bind<FragmentTweetBinding>(view)
+        fragmentTweetBinding?.viewmodel = viewModel
         
         return view
     }
