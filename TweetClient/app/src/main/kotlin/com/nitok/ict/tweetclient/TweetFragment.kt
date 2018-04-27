@@ -15,4 +15,12 @@ class TweetFragment : Fragment() {
         
         return view
     }
+    
+    companion object {
+        
+        fun newInstance(): TweetFragment {
+            return TweetFragment()
+        }
+    }
+    
 }
