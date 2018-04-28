@@ -29,26 +29,28 @@ object ActivityUtils {
      * performed by the `fragmentManager`.
      *
      */
-    fun addFragmentToActivity(fragmentManager: FragmentManager,
-                              fragment: Fragment, frameId: Int) {
+    fun addFragmentToActivity(
+            fragmentManager: FragmentManager,
+            fragment: Fragment,
+            tag: String = "",
+            frameId: Int = -1
+    ) {
         checkNotNull(fragmentManager)
         checkNotNull(fragment)
         val transaction = fragmentManager.beginTransaction()
-        transaction.add(frameId, fragment)
-        transaction.commit()
-    }
-    
-    /**
-     * The `fragment` is added to the container view with id `frameId`. The operation is
-     * performed by the `fragmentManager`.
-     *
-     */
-    fun addFragmentToActivity(fragmentManager: FragmentManager,
-                              fragment: Fragment, tag: String) {
-        checkNotNull(fragmentManager)
-        checkNotNull(fragment)
-        val transaction = fragmentManager.beginTransaction()
-        transaction.add(fragment, tag)
+        
+        if (tag != "") {
+            transaction.add(
+                    fragment,
+                    tag
+            )
+        } else {
+            transaction.add(
+                    frameId,
+                    fragment
+            )
+        }
+        
         transaction.commit()
     }
 }
