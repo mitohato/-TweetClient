@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         
         if (tweetFragment == null) {
             tweetFragment = TweetFragment.newInstance()
-
+            
             val transaction = fragmentManager.beginTransaction()
             transaction.add(R.id.content_frame, tweetFragment)
             transaction.commit()
