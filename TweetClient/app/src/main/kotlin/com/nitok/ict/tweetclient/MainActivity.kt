@@ -61,6 +61,11 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
     
+    override fun onDestroy() {
+        tweetViewModel.onActivityDestroyed()
+        super.onDestroy()
+    }
+    
     companion object {
         
         const val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
