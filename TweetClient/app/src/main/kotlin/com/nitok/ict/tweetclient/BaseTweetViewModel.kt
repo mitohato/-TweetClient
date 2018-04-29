@@ -18,9 +18,9 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
             return tweetText.get()?.length in 0..140
         }
     
-    fun tweet() {
+    open fun tweet() {
     }
     
-    fun start() {
+    open fun start() {
     }
 }
