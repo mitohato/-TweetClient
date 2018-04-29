@@ -32,8 +32,7 @@ object ActivityUtils {
     fun addFragmentToActivity(
             fragmentManager: FragmentManager,
             fragment: Fragment,
-            tag: String = "",
-            frameId: Int = -1
+            tag: String = ""
     ) {
         checkNotNull(fragmentManager)
         checkNotNull(fragment)
@@ -43,11 +42,6 @@ object ActivityUtils {
             transaction.add(
                     fragment,
                     tag
-            )
-        } else {
-            transaction.add(
-                    frameId,
-                    fragment
             )
         }
         
