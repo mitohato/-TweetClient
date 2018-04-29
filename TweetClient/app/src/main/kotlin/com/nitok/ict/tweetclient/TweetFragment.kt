@@ -11,6 +11,10 @@ import com.nitok.ict.tweetclient.databinding.FragmentTweetBinding
 class TweetFragment : Fragment() {
     private lateinit var viewModel: TweetViewModel
     
+    fun setViewModel(viewModel: TweetViewModel) {
+        this.viewModel = viewModel
+    }
+    
     override fun onCreateView(
             inflater: LayoutInflater,
             container: ViewGroup?,
