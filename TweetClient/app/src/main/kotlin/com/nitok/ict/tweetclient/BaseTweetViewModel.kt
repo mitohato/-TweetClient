@@ -15,7 +15,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     var tweetable: Boolean = false
         @Bindable
         get() {
-            return true
+            return tweetText.get()?.length in 0..140
         }
     
     fun tweet() {
