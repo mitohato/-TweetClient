@@ -11,9 +11,11 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         
-        tweetViewModel = findOrCreateViewModel()
         val tweetFragment = findOrCreateViewFragment()
         
+        tweetViewModel = findOrCreateViewModel()
+        tweetViewModel.setNavigator(this)
+        tweetFragment.setViewModel(tweetViewModel)
     }
     
     private fun findOrCreateViewModel(): TweetViewModel {
