@@ -24,9 +24,9 @@ import android.support.v4.app.Fragment
 /**
  * Non-UI Fragment used to retain ViewModels.
  */
-class ViewModelHolder : Fragment() {
+class ViewModelHolder<VM> : Fragment() {
     
-    var viewmodel: TweetViewModel? = null
+    var viewmodel: VM? = null
         private set
     
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,14 +34,14 @@ class ViewModelHolder : Fragment() {
         retainInstance = true
     }
     
-    fun setViewModel(viewModel: TweetViewModel) {
+    fun setViewModel(viewModel: VM) {
         viewmodel = viewModel
     }
     
     companion object {
         
-        fun createContainer(viewModel: TweetViewModel): ViewModelHolder {
-            val viewModelContainer = ViewModelHolder()
+        fun <M>createContainer(viewModel: M): ViewModelHolder<*> {
+            val viewModelContainer = ViewModelHolder<M>()
             viewModelContainer.setViewModel(viewModel)
             return viewModelContainer
         }
