@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     //
     private fun findOrCreateViewFragment(): TweetFragment {
         var tweetFragment: TweetFragment? =
-                supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment
+                supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
         
         if (tweetFragment == null) {
             tweetFragment = TweetFragment.newInstance()
