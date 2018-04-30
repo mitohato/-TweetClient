@@ -10,10 +10,9 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
-//        val tweetFragment = findOrCreateViewFragment()
         
         tweetViewModel = findOrCreateViewModel()
+        val tweetFragment = findOrCreateViewFragment()
         
     }
     
