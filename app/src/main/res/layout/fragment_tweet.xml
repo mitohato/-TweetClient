@@ -23,7 +23,7 @@
             android:autofillHints="password"
             android:background="#00000000"
             android:gravity="top|start"
-            android:hint="@string/tweet"
+            android:hint="@string/tweet_jp"
             android:inputType="text"
             android:text="@={viewmodel.tweetText}"
             tools:targetApi="o"/>
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
             android:background="@drawable/tweet_button"
-            android:text="@string/tweet"
+            android:text="@string/tweet_en"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     </android.support.constraint.ConstraintLayout>
