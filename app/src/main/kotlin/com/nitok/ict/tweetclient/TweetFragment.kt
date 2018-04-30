@@ -1,7 +1,6 @@
 package com.nitok.ict.tweetclient
 
 import android.app.Fragment
-import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -21,8 +20,9 @@ class TweetFragment : Fragment() {
             savedInstanceState: Bundle?
     ): View {
         val view = inflater.inflate(
-                R.layout.activity_main,
-                container, false
+                R.layout.fragment_tweet,
+                container,
+                false
         )
         
         val fragmentTweetBinding = FragmentTweetBinding.bind(view)
