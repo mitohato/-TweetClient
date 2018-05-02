@@ -6,6 +6,8 @@
 
     <data>
 
+        <import type="android.view.View"/>
+
         <variable
             name="viewmodel"
             type="com.nitok.ict.tweetclient.TweetViewModel"/>
