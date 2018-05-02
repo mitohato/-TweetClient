@@ -26,7 +26,7 @@ class TweetFragment : Fragment() {
         )
         
         val fragmentTweetBinding = FragmentTweetBinding.bind(view)
-        fragmentTweetBinding?.viewmodel = viewModel
+        fragmentTweetBinding.viewmodel = viewModel
         
         return view
     }
