@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">TweetClient</string>
-    <string name="tweet">ツイート</string>
+    <string name="tweet_jp">ツイート</string>
+    <string name="tweet_en">tweet</string>
 </resources>
