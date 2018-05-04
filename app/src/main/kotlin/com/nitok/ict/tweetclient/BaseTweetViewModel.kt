@@ -12,9 +12,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     val tweetText = ObservableField<String>()
     
     var tweetable: Boolean = false
-        get() {
-            return tweetText.get()?.length in 0..140
-        }
+        get() = tweetText.get()?.length in 1..140
     
     open fun tweet() {
     }
