@@ -2,16 +2,17 @@ package com.nitok.ict.tweetclient
 
 import android.content.Context
 import android.databinding.BaseObservable
-import android.databinding.ObservableField
+import android.databinding.Bindable
 
 abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     
     private var applicationContext: Context = context.applicationContext
     
-    val tweetText = ObservableField<String>()
+    @Bindable
+    var tweetText: String = ""
     
     var tweetable: Boolean = false
-        get() = tweetText.get()?.length in 1..140
+        get() = tweetText.length in 1..140
     
     open fun tweet() {
     }
