@@ -4,7 +4,6 @@ import android.content.Context
 import android.databinding.BaseObservable
 import android.databinding.ObservableField
 
-
 abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     
     var applicationContext: Context = context.applicationContext
