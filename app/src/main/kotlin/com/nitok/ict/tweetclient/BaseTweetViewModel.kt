@@ -6,7 +6,7 @@ import android.databinding.ObservableField
 
 abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     
-    var applicationContext: Context = context.applicationContext
+    private var applicationContext: Context = context.applicationContext
     
     val tweetText = ObservableField<String>()
     
