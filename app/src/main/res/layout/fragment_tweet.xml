@@ -34,9 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
-            android:background="@drawable/tweet_button"
+            android:background=
+                "@{viewmodel.tweetable ? @drawable/tweet_button : @drawable/tweet_button_disable}"
             android:text="@string/tweet_en"
-            android:visibility="@{viewmodel.tweetable ? View.VISIBLE : View.GONE}"
             android:textColor="@color/colorPrimaryLight"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
