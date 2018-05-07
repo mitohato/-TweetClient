@@ -30,7 +30,19 @@
             android:text="@={viewmodel.tweetText}"
             tools:targetApi="o"/>
 
+
+        <TextView
+            android:layout_margin="15dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewmodel.tweetNum}"
+            android:textColor="@color/colorSecondaryText"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/tweetButton"/>
+
         <Button
+            android:id="@+id/tweetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/margin"
