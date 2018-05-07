@@ -34,12 +34,14 @@ captures/
 
 # Intellij
 *.iml
+/.idea/modules.xml
 .idea/workspace.xml
 .idea/tasks.xml
 .idea/gradle.xml
+.idea/assetWizardSettings.xml
 .idea/dictionaries
 .idea/libraries
-/.idea/modules.xml
+.idea/caches
 
 # Keystore files
 *.jks
@@ -55,7 +57,15 @@ freeline.py
 freeline/
 freeline_project_description.json
 
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+fastlane/readme.md
+
 keys.xml
 
 .DS_Store
 .externalNativeBuild
+
