@@ -10,7 +10,12 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     
     @Bindable
     var tweetText: String = ""
+        set(value) {
+            field = value
+            notifyChange()
+        }
     
+    @Bindable
     var tweetable: Boolean = false
         get() = tweetText.length in 1..140
     
