@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:tools="http://schemas.android.com/tools"
-        tools:ignore="MissingDefaultResource">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource">
 
     <data>
 
-        <import type="android.view.View"/>
+        <import type="android.view.View" />
 
         <variable
             name="viewmodel"
-            type="com.nitok.ict.tweetclient.TweetViewModel"/>
+            type="com.nitok.ict.tweetclient.TweetViewModel" />
 
     </data>
 
@@ -36,31 +36,30 @@
             android:hint="@string/tweet_jp"
             android:inputType="textMultiLine"
             android:text="@={viewmodel.tweetText}"
-            tools:targetApi="o"/>
             app:layout_constraintStart_toStartOf="@id/icon"
+            tools:targetApi="o" />
 
 
         <TextView
-            android:layout_margin="@dimen/tweet_length_margin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/tweet_length_margin"
             android:text="@{viewmodel.tweetLength}"
             android:textColor="@color/colorSecondaryText"
             android:textSize="@dimen/tweet_length_text_size"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/tweetButton"/>
+            app:layout_constraintEnd_toStartOf="@id/tweetButton" />
 
         <Button
             android:id="@+id/tweetButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/base_margin"
-            android:background=
-                "@{viewmodel.tweetable ? @drawable/tweet_button : @drawable/tweet_button_disable}"
+            android:background="@{viewmodel.tweetable ? @drawable/tweet_button : @drawable/tweet_button_disable}"
+            android:enabled="@{viewmodel.tweetable}"
             android:text="@string/tweet_en"
             android:textColor="@color/colorPrimaryLight"
-            android:enabled="@{viewmodel.tweetable}"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            app:layout_constraintEnd_toEndOf="parent" />
     </android.support.constraint.ConstraintLayout>
 </layout>
