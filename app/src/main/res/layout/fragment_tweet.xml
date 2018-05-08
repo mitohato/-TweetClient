@@ -50,6 +50,7 @@
                 "@{viewmodel.tweetable ? @drawable/tweet_button : @drawable/tweet_button_disable}"
             android:text="@string/tweet_en"
             android:textColor="@color/colorPrimaryLight"
+            android:enabled="@{viewmodel.tweetable}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"/>
     </android.support.constraint.ConstraintLayout>
