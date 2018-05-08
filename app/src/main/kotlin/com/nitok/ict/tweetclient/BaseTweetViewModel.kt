@@ -20,7 +20,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
         get() = tweetText.length in 1..140
     
     @Bindable
-    var tweetNum: String = ""
+    var tweetLength: String = ""
         get() = tweetText.length.toString()
     
     open fun tweet() {
