@@ -26,7 +26,7 @@
             android:background="#00000000"
             android:gravity="top|start"
             android:hint="@string/tweet_jp"
-            android:inputType="text"
+            android:inputType="textMultiLine"
             android:text="@={viewmodel.tweetText}"
             tools:targetApi="o"/>
 
