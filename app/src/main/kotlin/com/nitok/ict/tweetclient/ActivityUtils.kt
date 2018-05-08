@@ -23,28 +23,28 @@ import android.support.v4.app.FragmentManager
  * This provides methods to help Activities load their UI.
  */
 object ActivityUtils {
-    
+
     /**
      * The `fragment` is added to the container view with id `frameId`. The operation is
      * performed by the `fragmentManager`.
      *
      */
     fun addFragmentToActivity(
-            fragmentManager: FragmentManager,
-            fragment: Fragment,
-            tag: String = ""
+        fragmentManager: FragmentManager,
+        fragment: Fragment,
+        tag: String = ""
     ) {
         checkNotNull(fragmentManager)
         checkNotNull(fragment)
         val transaction = fragmentManager.beginTransaction()
-        
+
         if (tag != "") {
             transaction.add(
                     fragment,
                     tag
             )
         }
-        
+
         transaction.commit()
     }
 }
