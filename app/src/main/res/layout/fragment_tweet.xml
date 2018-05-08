@@ -18,6 +18,14 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="@dimen/icon_size"
+            android:layout_height="@dimen/icon_size"
+            android:contentDescription="@string/icon"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -29,6 +37,7 @@
             android:inputType="textMultiLine"
             android:text="@={viewmodel.tweetText}"
             tools:targetApi="o"/>
+            app:layout_constraintStart_toStartOf="@id/icon"
 
 
         <TextView
