@@ -3,6 +3,7 @@ package com.nitok.ict.tweetclient
 import android.content.Context
 import android.databinding.BaseObservable
 import android.databinding.Bindable
+import android.graphics.drawable.Drawable
 
 abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
@@ -22,6 +23,8 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     @Bindable
     var tweetLength: String = ""
         get() = tweetText.length.toString()
+
+    lateinit var icon: Drawable
 
     open fun tweet() {
     }
