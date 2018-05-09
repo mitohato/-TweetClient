@@ -24,7 +24,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     var tweetLength: String = ""
         get() = tweetText.length.toString()
 
-    lateinit var icon: Drawable
+    var icon: Drawable? = null
 
     open fun tweet() {
     }
