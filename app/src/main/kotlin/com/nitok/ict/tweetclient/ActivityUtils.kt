@@ -40,8 +40,8 @@ object ActivityUtils {
 
         if (tag != "") {
             transaction.add(
-                    fragment,
-                    tag
+                fragment,
+                tag
             )
         }
 

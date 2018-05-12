@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     private fun findOrCreateViewModel(): TweetViewModel {
 
         val retainedViewModel =
-                supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder<*>?
+            supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder<*>?
 
         return if (retainedViewModel?.viewmodel != null) {
             retainedViewModel.viewmodel as TweetViewModel
@@ -32,9 +32,9 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             val viewModel = TweetViewModel(this)
 
             ActivityUtils.addFragmentToActivity(
-                    supportFragmentManager,
-                    ViewModelHolder.createContainer(viewModel),
-                    TWEET_VIEWMODEL_TAG
+                supportFragmentManager,
+                ViewModelHolder.createContainer(viewModel),
+                TWEET_VIEWMODEL_TAG
             )
 
             viewModel
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     //
     private fun findOrCreateViewFragment(): TweetFragment {
         var tweetFragment: TweetFragment? =
-                supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
+            supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
 
         if (tweetFragment == null) {
             tweetFragment = TweetFragment.newInstance()
