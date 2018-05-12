@@ -3,4 +3,6 @@
     <string name="tweet_jp">ツイート</string>
     <string name="tweet_en">tweet</string>
     <string name="icon">Icon</string>
+    <string name="error_auth">認証エラー</string>
+    <string name="error">error</string>
 </resources>
