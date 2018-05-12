@@ -16,6 +16,9 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         tweetViewModel = findOrCreateViewModel()
         tweetViewModel.setNavigator(this)
         tweetFragment.setViewModel(tweetViewModel)
+
+        if (!TwitterUtils.hasAccessToken(this)) {
+        }
     }
 
     private fun findOrCreateViewModel(): TweetViewModel {
