@@ -1,6 +1,7 @@
 package com.nitok.ict.tweetclient
 
 import android.app.Activity
+import android.app.Fragment
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 
@@ -18,6 +19,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         tweetFragment.setViewModel(tweetViewModel)
 
         if (!TwitterUtils.hasAccessToken(this)) {
+            val twitterOAuthFragment: Fragment = TwitterOAuthFragment()
+            val transaction = supportFragmentManager.beginTransaction()
+            transaction.add(R.id.content_frame, twitterOAuthFragment)
+            transaction.commit()
         }
     }
 
