@@ -1,9 +1,9 @@
 package com.nitok.ict.tweetclient
 
 import android.annotation.SuppressLint
-import android.app.Fragment
 import android.content.Intent
 import android.os.AsyncTask
+import android.support.v4.app.Fragment
 import androidx.core.net.toUri
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
