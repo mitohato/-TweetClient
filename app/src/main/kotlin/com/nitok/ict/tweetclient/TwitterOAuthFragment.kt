@@ -5,8 +5,8 @@ import android.content.Intent
 import android.os.AsyncTask
 import android.support.v4.app.Fragment
 import androidx.core.net.toUri
-import org.jetbrains.anko.startActivity
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.support.v4.startActivity
+import org.jetbrains.anko.support.v4.toast
 import twitter4j.Twitter
 import twitter4j.TwitterException
 import twitter4j.auth.AccessToken
