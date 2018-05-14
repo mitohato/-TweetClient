@@ -18,7 +18,10 @@ object TwitterUtils {
      * *
      * @return
      */
-    fun getTwitterInstance(context: Context): Twitter {
+    fun getTwitterInstance(context: Context?): Twitter? {
+        if (context == null) {
+            return null
+        }
         val consumerKey = context.getString(R.string.consumer_key)
         val consumerSecret = context.getString(R.string.consumer_secret_key)
         val twitter = TwitterFactory().instance
@@ -42,13 +45,13 @@ object TwitterUtils {
          * @param accessToken
          */
     fun storeAccessToken(
-        context: Context,
+        context: Context?,
         accessToken: AccessToken
     ) {
-        context.getSharedPreferences(
+        context?.getSharedPreferences(
             PREF_NAME,
             Context.MODE_PRIVATE
-        ).edit().apply {
+        )?.edit()?.apply {
 
             putString(
                 TOKEN,
@@ -59,7 +62,7 @@ object TwitterUtils {
                 TOKEN_SECRET,
                 accessToken.tokenSecret
             )
-        }.apply()
+        }?.apply()
     }
 
     /**

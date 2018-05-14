@@ -14,14 +14,14 @@ import twitter4j.auth.RequestToken
 
 class TwitterOAuthFragment : Fragment() {
     private val callbackUrl: String by lazy { getString(R.string.twitter_callback_url) }
-    private val twitter: Twitter by lazy { TwitterUtils.getTwitterInstance(this.activity.applicationContext) }
-    private val requestToken: RequestToken by lazy { twitter.getOAuthRequestToken(callbackUrl) }
+    private val twitter: Twitter? by lazy { TwitterUtils.getTwitterInstance(this.context?.applicationContext) }
+    private val requestToken: RequestToken? by lazy { twitter?.getOAuthRequestToken(callbackUrl) }
 
     fun startAuthorize() {
         val task = @SuppressLint("StaticFieldLeak")
         object : AsyncTask<Void, Void, String>() {
             override fun doInBackground(vararg params: Void?): String? = try {
-                requestToken.authorizationURL
+                requestToken?.authorizationURL
             } catch (e: TwitterException) {
                 e.printStackTrace()
                 null
@@ -51,7 +51,7 @@ class TwitterOAuthFragment : Fragment() {
         object : AsyncTask<String, Void, AccessToken>() {
             override fun doInBackground(vararg p0: String?): AccessToken? {
                 try {
-                    return twitter.getOAuthAccessToken(
+                    return twitter?.getOAuthAccessToken(
                         requestToken,
                         p0[0]
                     )
@@ -74,11 +74,11 @@ class TwitterOAuthFragment : Fragment() {
 
     private fun successOAuth(token: AccessToken) {
         TwitterUtils.storeAccessToken(
-            this.activity.applicationContext,
+            this.context?.applicationContext,
             token
         )
 
         startActivity<MainActivity>()
-        fragmentManager.beginTransaction().remove(this).commit()
+        fragmentManager?.beginTransaction()?.remove(this)?.commit()
     }
 }
