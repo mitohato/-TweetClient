@@ -11,17 +11,17 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tweetFragment = findOrCreateViewFragment()
-
-        tweetViewModel = findOrCreateViewModel()
-        tweetViewModel.setNavigator(this)
-        tweetFragment.setViewModel(tweetViewModel)
-
         if (!TwitterUtils.hasAccessToken(this)) {
             val twitterOAuthFragment = TwitterOAuthFragment()
             val transaction = supportFragmentManager.beginTransaction()
             transaction.add(R.id.content_frame, twitterOAuthFragment)
             transaction.commit()
+        } else {
+            val tweetFragment = findOrCreateViewFragment()
+
+            tweetViewModel = findOrCreateViewModel()
+            tweetViewModel.setNavigator(this)
+            tweetFragment.setViewModel(tweetViewModel)
         }
     }
 
