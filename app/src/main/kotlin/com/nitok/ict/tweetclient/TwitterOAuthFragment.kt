@@ -21,7 +21,7 @@ class TwitterOAuthFragment : Fragment() {
         val task = @SuppressLint("StaticFieldLeak")
         object : AsyncTask<Void, Void, String>() {
             override fun doInBackground(vararg params: Void?): String? = try {
-                requestToken?.authorizationURL
+                requestToken.authorizationURL
             } catch (e: TwitterException) {
                 e.printStackTrace()
                 null
@@ -51,7 +51,7 @@ class TwitterOAuthFragment : Fragment() {
         object : AsyncTask<String, Void, AccessToken>() {
             override fun doInBackground(vararg p0: String?): AccessToken? {
                 try {
-                    return twitter?.getOAuthAccessToken(
+                    return twitter.getOAuthAccessToken(
                         requestToken,
                         p0[0]
                     )
