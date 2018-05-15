@@ -14,8 +14,8 @@ import twitter4j.auth.RequestToken
 
 class TwitterOAuthFragment : Fragment() {
     private val callbackUrl: String by lazy { getString(R.string.twitter_callback_url) }
-    private val twitter: Twitter? by lazy { TwitterUtils.getTwitterInstance(this.context?.applicationContext) }
-    private val requestToken: RequestToken? by lazy { twitter?.getOAuthRequestToken(callbackUrl) }
+    private val twitter: Twitter by lazy { TwitterUtils.getTwitterInstance(this.activity.applicationContext) }
+    private val requestToken: RequestToken by lazy { twitter.getOAuthRequestToken(callbackUrl) }
 
     fun startAuthorize() {
         val task = @SuppressLint("StaticFieldLeak")
@@ -74,7 +74,7 @@ class TwitterOAuthFragment : Fragment() {
 
     private fun successOAuth(token: AccessToken) {
         TwitterUtils.storeAccessToken(
-            this.context?.applicationContext,
+            this.activity.applicationContext,
             token
         )
 
