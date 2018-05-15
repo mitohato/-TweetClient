@@ -12,8 +12,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         setContentView(R.layout.activity_main)
 
         if (!TwitterUtils.hasAccessToken(this)) {
-            val transaction = supportFragmentManager.beginTransaction()
             val twitterOAuthFragment = TwitterOAuthFragment.newInstance()
+            val transaction = fragmentManager.beginTransaction()
             transaction.add(R.id.content_frame, twitterOAuthFragment)
             transaction.commit()
         } else {
