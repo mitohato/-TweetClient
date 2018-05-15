@@ -81,4 +81,10 @@ class TwitterOAuthFragment : Fragment() {
         startActivity<MainActivity>()
         fragmentManager?.beginTransaction()?.remove(this)?.commit()
     }
+
+    companion object {
+        fun newInstance(): TwitterOAuthFragment {
+            return TwitterOAuthFragment()
+        }
+    }
 }
