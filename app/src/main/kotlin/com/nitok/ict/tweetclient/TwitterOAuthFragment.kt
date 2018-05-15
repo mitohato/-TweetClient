@@ -18,6 +18,12 @@ class TwitterOAuthFragment : Fragment() {
     private val requestToken: RequestToken by lazy { twitter.getOAuthRequestToken(callbackUrl) }
 
     fun startAuthorize() {
+    override fun onStart() {
+        super.onStart()
+
+        startAuthorize()
+    }
+
         val task = @SuppressLint("StaticFieldLeak")
         object : AsyncTask<Void, Void, String>() {
             override fun doInBackground(vararg params: Void?): String? = try {
