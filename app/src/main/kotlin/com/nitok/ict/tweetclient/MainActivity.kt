@@ -3,9 +3,10 @@ package com.nitok.ict.tweetclient
 import android.app.Activity
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
-    private lateinit var tweetViewModel: TweetViewModel
+    private var tweetViewModel: TweetViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +19,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             val tweetFragment = findOrCreateViewFragment()
 
             tweetViewModel = findOrCreateViewModel()
-            tweetViewModel.setNavigator(this)
-            tweetFragment.setViewModel(tweetViewModel)
+            tweetViewModel?.let {
+                it.setNavigator(this)
+                tweetFragment.setViewModel(it)
+            }
         }
     }
 
@@ -68,7 +71,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     override fun onDestroy() {
-        tweetViewModel.onActivityDestroyed()
+        tweetViewModel?.onActivityDestroyed()
         super.onDestroy()
     }
 
