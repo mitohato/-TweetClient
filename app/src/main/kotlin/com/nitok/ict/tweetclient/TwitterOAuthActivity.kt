@@ -75,6 +75,9 @@ class TwitterOAuthActivity : AppCompatActivity() {
             }
         }
         task.execute(verifier)
+
+        super.onNewIntent(intent)
+        setIntent(intent)
     }
 
     private fun successOAuth(token: AccessToken) {
