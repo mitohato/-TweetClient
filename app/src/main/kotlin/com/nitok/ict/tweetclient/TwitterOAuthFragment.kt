@@ -3,8 +3,9 @@ package com.nitok.ict.tweetclient
 import android.annotation.SuppressLint
 import android.app.Fragment
 import android.content.Intent
+import android.net.Uri
 import android.os.AsyncTask
-import androidx.core.net.toUri
+// import androidx.core.net.toUri
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import twitter4j.Twitter
@@ -38,7 +39,7 @@ class TwitterOAuthFragment : Fragment() {
                 if (result != null) {
                     val intent = Intent(
                         Intent.ACTION_VIEW,
-                        result.toUri()
+                        Uri.parse(result)
                     )
                     startActivity(intent)
                 } else {

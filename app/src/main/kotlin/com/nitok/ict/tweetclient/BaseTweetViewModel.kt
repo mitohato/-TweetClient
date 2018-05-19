@@ -1,9 +1,9 @@
 package com.nitok.ict.tweetclient
 
 import android.content.Context
-import android.databinding.BaseObservable
-import android.databinding.Bindable
 import android.graphics.drawable.Drawable
+import androidx.databinding.BaseObservable
+import androidx.databinding.Bindable
 
 abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
