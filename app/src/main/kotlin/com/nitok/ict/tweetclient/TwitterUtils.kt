@@ -11,17 +11,11 @@ object TwitterUtils {
     private const val TOKEN_SECRET = "token_secret"
     private const val PREF_NAME = "twitter_access_token"
 
-    /**
-     * Twitterインスタンスを取得します。アクセストークンが保存されていれば自動的にセットします。
-     *
-     * @param context
-     * *
-     * @return
-     */
     fun getTwitterInstance(context: Context): Twitter {
         val consumerKey = context.getString(R.string.consumer_key)
         val consumerSecret = context.getString(R.string.consumer_secret_key)
         val twitter = TwitterFactory().instance
+
         twitter.setOAuthConsumer(
             consumerKey,
             consumerSecret
@@ -34,13 +28,6 @@ object TwitterUtils {
     }
 
     @SuppressLint("CommitPrefEdits")
-        /**
-         * アクセストークンをプリファレンスに保存します。
-         *
-         * @param context
-         * *
-         * @param accessToken
-         */
     fun storeAccessToken(
         context: Context,
         accessToken: AccessToken
@@ -62,13 +49,6 @@ object TwitterUtils {
         }.apply()
     }
 
-    /**
-     * アクセストークンをプリファレンスから読み込みます。
-
-     * @param context
-     * *
-     * @return
-     */
     fun loadAccessToken(context: Context): AccessToken? {
         val preferences = context.getSharedPreferences(
             PREF_NAME,
@@ -95,9 +75,5 @@ object TwitterUtils {
         }
     }
 
-    /**
-     * アクセストークンが存在する場合はtrueを返します。
-     * @return
-     */
     fun hasAccessToken(context: Context): Boolean = loadAccessToken(context) != null
 }
