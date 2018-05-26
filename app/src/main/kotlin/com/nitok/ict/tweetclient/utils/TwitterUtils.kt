@@ -1,7 +1,8 @@
-package com.nitok.ict.tweetclient
+package com.nitok.ict.tweetclient.utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import com.nitok.ict.tweetclient.R
 import twitter4j.Twitter
 import twitter4j.TwitterFactory
 import twitter4j.auth.AccessToken

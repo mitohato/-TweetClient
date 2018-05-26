@@ -1,8 +1,15 @@
-package com.nitok.ict.tweetclient
+package com.nitok.ict.tweetclient.activity
 
 import android.app.Activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.nitok.ict.tweetclient.R
+import com.nitok.ict.tweetclient.fragment.TweetFragment
+import com.nitok.ict.tweetclient.navigator.TweetNavigator
+import com.nitok.ict.tweetclient.utils.ActivityUtils
+import com.nitok.ict.tweetclient.utils.TwitterUtils
+import com.nitok.ict.tweetclient.viewmodel.TweetViewModel
+import com.nitok.ict.tweetclient.viewmodel.ViewModelHolder
 import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), TweetNavigator {

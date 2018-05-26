@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nitok.ict.tweetclient
+package com.nitok.ict.tweetclient.utils
 
 /**
  * This provides methods to help Activities load their UI.

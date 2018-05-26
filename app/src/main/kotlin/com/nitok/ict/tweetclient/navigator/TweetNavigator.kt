@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient
+package com.nitok.ict.tweetclient.navigator
 
 interface TweetNavigator {
 

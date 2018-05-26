@@ -10,7 +10,7 @@
 
         <variable
             name="viewmodel"
-            type="com.nitok.ict.tweetclient.TweetViewModel" />
+            type="com.nitok.ict.tweetclient.viewmodel.TweetViewModel" />
 
     </data>
 

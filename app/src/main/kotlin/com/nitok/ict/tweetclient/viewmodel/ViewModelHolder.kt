@@ -14,10 +14,9 @@
  * limitations under the License.
  */
 
-package com.nitok.ict.tweetclient
+package com.nitok.ict.tweetclient.viewmodel
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 
 /**
  * Non-UI Fragment used to retain ViewModels.
