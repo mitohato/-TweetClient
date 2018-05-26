@@ -7,6 +7,7 @@ import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 import twitter4j.Twitter
 import twitter4j.TwitterException
 import twitter4j.auth.AccessToken
@@ -41,7 +42,7 @@ class TwitterOAuthActivity : AppCompatActivity() {
                     )
                     startActivity(intent)
                 } else {
-//                    toast(R.string.error)
+                    toast(R.string.error)
                 }
             }
         }
@@ -69,7 +70,7 @@ class TwitterOAuthActivity : AppCompatActivity() {
                 if (result != null) {
                     successOAuth(result)
                 } else {
-//                    toast(R.string.error_auth)
+                    toast(R.string.error_auth)
                 }
             }
         }
