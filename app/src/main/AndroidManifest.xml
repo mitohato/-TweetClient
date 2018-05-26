@@ -33,7 +33,7 @@
 
                 <data
                     android:host="twitter"
-                    android:scheme="mitotter" />
+                    android:scheme="tweetclient" />
             </intent-filter>
         </activity>
     </application>
