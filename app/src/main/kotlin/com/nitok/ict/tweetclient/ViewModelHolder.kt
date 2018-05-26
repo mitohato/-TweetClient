@@ -17,12 +17,12 @@
 package com.nitok.ict.tweetclient
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
+import androidx.fragment.app.Fragment
 
 /**
  * Non-UI Fragment used to retain ViewModels.
  */
-class ViewModelHolder<VM> : Fragment() {
+class ViewModelHolder<VM> : androidx.fragment.app.Fragment() {
 
     var viewmodel: VM? = null
         private set

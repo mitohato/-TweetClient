@@ -2,26 +2,34 @@ package com.nitok.ict.tweetclient
 
 import android.app.Activity
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
+import org.jetbrains.anko.startActivity
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
-    private lateinit var tweetViewModel: TweetViewModel
+    private var tweetViewModel: TweetViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val tweetFragment = findOrCreateViewFragment()
+        if (!TwitterUtils.hasAccessToken(this)) {
+            startActivity<TwitterOAuthActivity>()
+            finish()
+        } else {
+            val tweetFragment = findOrCreateViewFragment()
 
-        tweetViewModel = findOrCreateViewModel()
-        tweetViewModel.setNavigator(this)
-        tweetFragment.setViewModel(tweetViewModel)
+            tweetViewModel = findOrCreateViewModel()
+            tweetViewModel?.let {
+                it.setNavigator(this)
+                tweetFragment.setViewModel(it)
+            }
+        }
     }
 
     private fun findOrCreateViewModel(): TweetViewModel {
 
         val retainedViewModel =
-                supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder<*>?
+            supportFragmentManager.findFragmentByTag(TWEET_VIEWMODEL_TAG) as ViewModelHolder<*>?
 
         return if (retainedViewModel?.viewmodel != null) {
             retainedViewModel.viewmodel as TweetViewModel
@@ -29,9 +37,9 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             val viewModel = TweetViewModel(this)
 
             ActivityUtils.addFragmentToActivity(
-                    supportFragmentManager,
-                    ViewModelHolder.createContainer(viewModel),
-                    TWEET_VIEWMODEL_TAG
+                supportFragmentManager,
+                ViewModelHolder.createContainer(viewModel),
+                TWEET_VIEWMODEL_TAG
             )
 
             viewModel
@@ -41,7 +49,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     //
     private fun findOrCreateViewFragment(): TweetFragment {
         var tweetFragment: TweetFragment? =
-                supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
+            supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
 
         if (tweetFragment == null) {
             tweetFragment = TweetFragment.newInstance()
@@ -63,7 +71,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     override fun onDestroy() {
-        tweetViewModel.onActivityDestroyed()
+        tweetViewModel?.onActivityDestroyed()
         super.onDestroy()
     }
 

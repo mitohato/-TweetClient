@@ -16,9 +16,6 @@
 
 package com.nitok.ict.tweetclient
 
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentManager
-
 /**
  * This provides methods to help Activities load their UI.
  */
@@ -30,8 +27,8 @@ object ActivityUtils {
      *
      */
     fun addFragmentToActivity(
-        fragmentManager: FragmentManager,
-        fragment: Fragment,
+        fragmentManager: androidx.fragment.app.FragmentManager,
+        fragment: androidx.fragment.app.Fragment,
         tag: String = ""
     ) {
         checkNotNull(fragmentManager)
@@ -40,8 +37,8 @@ object ActivityUtils {
 
         if (tag != "") {
             transaction.add(
-                    fragment,
-                    tag
+                fragment,
+                tag
             )
         }
 
