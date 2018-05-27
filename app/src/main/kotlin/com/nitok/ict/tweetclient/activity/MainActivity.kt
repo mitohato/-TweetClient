@@ -1,6 +1,8 @@
 package com.nitok.ict.tweetclient.activity
 
+import android.annotation.SuppressLint
 import android.app.Activity
+import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nitok.ict.tweetclient.R
@@ -11,6 +13,7 @@ import com.nitok.ict.tweetclient.utils.TwitterUtils
 import com.nitok.ict.tweetclient.viewmodel.TweetViewModel
 import com.nitok.ict.tweetclient.viewmodel.ViewModelHolder
 import org.jetbrains.anko.startActivity
+import twitter4j.TwitterException
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
     private var tweetViewModel: TweetViewModel? = null
@@ -74,7 +77,19 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     override fun onPostTweet() {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+        val twitter = TwitterUtils.getTwitterInstance(this)
+
+        val task = @SuppressLint("StaticFieldLeak")
+        object : AsyncTask<String, Void, Unit>() {
+            override fun doInBackground(vararg p0: String?) {
+                try {
+                    twitter.updateStatus(p0[0])
+                } catch (e: TwitterException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+        task.execute("test")
     }
 
     override fun onDestroy() {
