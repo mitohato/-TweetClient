@@ -77,6 +77,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     override fun onPostTweet() {
+        setResult(TWEET_RESULT_OK)
         val twitter = TwitterUtils.getTwitterInstance(this)
 
         val task = @SuppressLint("StaticFieldLeak")
@@ -101,6 +102,6 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
         const val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
 
-        val EDIT_RESULT_OK = Activity.RESULT_FIRST_USER + 3
+        const val TWEET_RESULT_OK = Activity.RESULT_FIRST_USER + 3
     }
 }
