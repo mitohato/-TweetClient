@@ -31,9 +31,12 @@ class TweetFragment : Fragment() {
         val fragmentTweetBinding = FragmentTweetBinding.bind(view)
         fragmentTweetBinding.viewmodel = viewModel
 
-        setTweetButton()
-
         return view
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        setTweetButton()
     }
 
     private fun setTweetButton() {
