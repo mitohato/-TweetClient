@@ -76,7 +76,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onPostTweet() {
+    override fun onPostTweet(tweetText: String) {
         setResult(TWEET_RESULT_OK)
         val twitter = TwitterUtils.getTwitterInstance(this)
 
@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
                 }
             }
         }
-        task.execute("test")
+        task.execute(tweetText)
     }
 
     override fun onDestroy() {

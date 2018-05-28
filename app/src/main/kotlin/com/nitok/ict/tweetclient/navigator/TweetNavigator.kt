@@ -4,5 +4,5 @@ interface TweetNavigator {
 
     fun onStartWriteTweet()
 
-    fun onPostTweet()
+    fun onPostTweet(tweetText: String)
 }

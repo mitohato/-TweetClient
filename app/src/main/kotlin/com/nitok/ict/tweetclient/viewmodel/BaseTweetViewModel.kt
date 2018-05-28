@@ -26,7 +26,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     var icon: Drawable? = null
 
-    open fun tweet() {
+    open fun tweet(tweetText: String) {
     }
 
     open fun start() {
