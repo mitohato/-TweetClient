@@ -1,8 +1,6 @@
 package com.nitok.ict.tweetclient.activity
 
-import android.annotation.SuppressLint
 import android.app.Activity
-import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nitok.ict.tweetclient.R
@@ -12,6 +10,9 @@ import com.nitok.ict.tweetclient.utils.ActivityUtils
 import com.nitok.ict.tweetclient.utils.TwitterUtils
 import com.nitok.ict.tweetclient.viewmodel.TweetViewModel
 import com.nitok.ict.tweetclient.viewmodel.ViewModelHolder
+import kotlinx.coroutines.experimental.CommonPool
+import kotlinx.coroutines.experimental.Deferred
+import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
 import twitter4j.TwitterException
 
@@ -76,21 +77,16 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun onPostTweet(tweetText: String) {
+    override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
         setResult(TWEET_RESULT_OK)
-        val twitter = TwitterUtils.getTwitterInstance(this)
+        val twitter = TwitterUtils.getTwitterInstance(this@MainActivity)
 
-        val task = @SuppressLint("StaticFieldLeak")
-        object : AsyncTask<String, Void, Unit>() {
-            override fun doInBackground(vararg p0: String?) {
-                try {
-                    twitter.updateStatus(p0[0])
-                } catch (e: TwitterException) {
-                    e.printStackTrace()
-                }
-            }
+        try {
+            twitter.updateStatus(tweetText)
+        } catch (e: TwitterException) {
+            e.printStackTrace()
         }
-        task.execute(tweetText)
+        return@async
     }
 
     override fun onDestroy() {
