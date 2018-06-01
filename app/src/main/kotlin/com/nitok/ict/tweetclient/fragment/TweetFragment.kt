@@ -42,8 +42,10 @@ class TweetFragment : Fragment() {
     private fun setTweetButton() {
         val tweetButton: Button? = activity?.findViewById(R.id.tweetButton)
         tweetButton?.setOnClickListener {
-            viewModel.tweet(viewModel.tweetText)
-            viewModel.tweetText = ""
+            viewModel.apply {
+                tweet(tweetText)
+                tweetText = ""
+            }
         }
     }
 
