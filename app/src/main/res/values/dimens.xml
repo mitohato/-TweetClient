@@ -9,4 +9,5 @@
 
     <!-- layout size -->
     <dimen name="icon_size">20dp</dimen>
+    <dimen name="select_image_size">50dp</dimen>
 </resources>
