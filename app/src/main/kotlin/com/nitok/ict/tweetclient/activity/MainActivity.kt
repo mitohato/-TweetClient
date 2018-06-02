@@ -84,6 +84,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         return@async
     }
 
+    override fun onSelectImage() {
+        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun onDestroy() {
         tweetViewModel?.onActivityDestroyed()
         super.onDestroy()
