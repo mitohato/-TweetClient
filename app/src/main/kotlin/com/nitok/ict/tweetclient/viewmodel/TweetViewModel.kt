@@ -18,4 +18,9 @@ class TweetViewModel(context: Context) : BaseTweetViewModel(context) {
         super.tweet(tweetText)
         tweetNavigator?.onPostTweet(tweetText)
     }
+
+    override fun selectImage() {
+        super.selectImage()
+        tweetNavigator?.onSelectImage()
+    }
 }
