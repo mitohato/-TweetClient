@@ -28,7 +28,4 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     open fun tweet(tweetText: String) {
     }
-
-    open fun start() {
-    }
 }

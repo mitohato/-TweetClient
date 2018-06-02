@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         }
     }
 
-    //
     private fun findOrCreateViewFragment(): TweetFragment {
         var tweetFragment: TweetFragment? =
             supportFragmentManager.findFragmentById(R.id.content_frame) as TweetFragment?
@@ -71,10 +70,6 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         }
 
         return tweetFragment
-    }
-
-    override fun onStartWriteTweet() {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
     }
 
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
