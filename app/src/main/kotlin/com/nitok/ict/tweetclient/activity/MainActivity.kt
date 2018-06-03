@@ -1,6 +1,10 @@
 package com.nitok.ict.tweetclient.activity
 
 import android.app.Activity
+import android.content.Intent
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.nitok.ict.tweetclient.R
@@ -15,6 +19,7 @@ import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
 import twitter4j.TwitterException
+import java.io.IOException
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
     private var tweetViewModel: TweetViewModel? = null
@@ -85,7 +90,36 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     override fun onSelectImage() {
-        TODO("not implemented") // To change body of created functions use File | Settings | File Templates.
+        val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
+        intent.addCategory(Intent.CATEGORY_OPENABLE)
+        intent.type = "image/*"
+        startActivityForResult(intent, RESULT_PICK_IMAGEFILE)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == RESULT_PICK_IMAGEFILE && resultCode == Activity.RESULT_OK) {
+            if (data != null) {
+
+                val uri = data.data
+
+                try {
+                    val bmp = getBitmapFromUri(uri)
+                } catch (e: IOException) {
+                    e.printStackTrace()
+                }
+            }
+        }
+    }
+
+    @Throws(IOException::class)
+    private fun getBitmapFromUri(uri: Uri): Bitmap {
+        val parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
+        val fileDescriptor = parcelFileDescriptor!!.fileDescriptor
+        val image = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+        parcelFileDescriptor.close()
+
+        return image
     }
 
     override fun onDestroy() {
@@ -94,6 +128,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     companion object {
+
+        const val RESULT_PICK_IMAGEFILE = Activity.RESULT_FIRST_USER + 10
 
         const val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
 
