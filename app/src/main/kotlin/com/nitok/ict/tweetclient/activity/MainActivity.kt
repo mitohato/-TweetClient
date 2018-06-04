@@ -95,12 +95,27 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             addCategory(Intent.CATEGORY_OPENABLE)
             type = "image/*"
         }
-        startActivityForResult(intent, RESULT_PICK_IMAGEFILE)
+        startActivityForResult(
+            intent,
+            RESULT_PICK_IMAGEFILE
+        )
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-        if (requestCode == RESULT_PICK_IMAGEFILE && resultCode == Activity.RESULT_OK) {
+    override fun onActivityResult(
+        requestCode: Int,
+        resultCode: Int,
+        data: Intent?
+    ) {
+        super.onActivityResult(
+            requestCode,
+            resultCode,
+            data
+        )
+
+        if (
+            requestCode == RESULT_PICK_IMAGEFILE &&
+            resultCode == Activity.RESULT_OK
+        ) {
             if (data != null) {
 
                 val uri = data.data
