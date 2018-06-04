@@ -107,6 +107,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
                 try {
                     val bmp = getBitmapFromUri(uri)
+
+                    // ここMVVM的にだいぶ黒に近いグレー
                     tweetViewModel?.isSelectedImage = true
                 } catch (e: IOException) {
                     e.printStackTrace()
