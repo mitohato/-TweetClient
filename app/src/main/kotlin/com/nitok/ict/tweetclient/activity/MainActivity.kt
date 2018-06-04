@@ -112,11 +112,16 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         }
     }
 
-    @Throws(IOException::class)
-    private fun getBitmapFromUri(uri: Uri): Bitmap {
+    private fun getBitmapFromUri(uri: Uri): Bitmap? {
         val parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
         val fileDescriptor = parcelFileDescriptor?.fileDescriptor
-        val image = BitmapFactory.decodeFileDescriptor(fileDescriptor)
+
+        val image = try {
+            BitmapFactory.decodeFileDescriptor(fileDescriptor)
+        } catch (e: IOException) {
+            e.printStackTrace()
+            null
+        }
         parcelFileDescriptor.close()
 
         return image
