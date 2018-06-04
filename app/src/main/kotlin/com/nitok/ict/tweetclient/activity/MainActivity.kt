@@ -6,6 +6,7 @@ import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import com.nitok.ict.tweetclient.R
 import com.nitok.ict.tweetclient.fragment.TweetFragment
@@ -125,6 +126,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
                     // ここMVVM的にだいぶ黒に近いグレー
                     tweetViewModel?.let {
+                        findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
                         it.selectImageNum++
                     }
                 } catch (e: IOException) {
