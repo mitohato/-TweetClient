@@ -115,7 +115,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     @Throws(IOException::class)
     private fun getBitmapFromUri(uri: Uri): Bitmap {
         val parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
-        val fileDescriptor = parcelFileDescriptor!!.fileDescriptor
+        val fileDescriptor = parcelFileDescriptor?.fileDescriptor
         val image = BitmapFactory.decodeFileDescriptor(fileDescriptor)
         parcelFileDescriptor.close()
 
