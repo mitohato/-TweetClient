@@ -133,7 +133,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     }
 
     private fun getBitmapFromUri(uri: Uri): Bitmap? {
-        val parcelFileDescriptor = contentResolver.openFileDescriptor(uri, "r")
+        val parcelFileDescriptor = contentResolver.openFileDescriptor(
+            uri,
+            "r"
+        )
         val fileDescriptor = parcelFileDescriptor?.fileDescriptor
 
         val image = try {
