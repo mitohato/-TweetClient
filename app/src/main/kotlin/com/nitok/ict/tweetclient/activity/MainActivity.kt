@@ -91,8 +91,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
     override fun onSelectImage() {
         val intent = Intent(Intent.ACTION_OPEN_DOCUMENT)
-        intent.addCategory(Intent.CATEGORY_OPENABLE)
-        intent.type = "image/*"
+        intent.apply {
+            addCategory(Intent.CATEGORY_OPENABLE)
+            type = "image/*"
+        }
         startActivityForResult(intent, RESULT_PICK_IMAGEFILE)
     }
 
