@@ -144,5 +144,12 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         const val TWEET_VIEWMODEL_TAG = "TWEET_VIEWMODEL_TAG"
 
         const val TWEET_RESULT_OK = Activity.RESULT_FIRST_USER + 3
+
+        val imageId = arrayListOf(
+            R.id.image1,
+            R.id.image2,
+            R.id.image3,
+            R.id.image4
+        )
     }
 }
