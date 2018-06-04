@@ -9,6 +9,8 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     private var applicationContext: Context = context.applicationContext
 
+    var isSelectedImage: Boolean = false
+
     @Bindable
     var tweetText: String = ""
         set(value) {
@@ -18,7 +20,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     @Bindable
     var tweetable: Boolean = false
-        get() = tweetText.length in 1..140
+        get() = tweetText.length in 1..140 || isSelectedImage
 
     @Bindable
     var tweetLength: String = ""

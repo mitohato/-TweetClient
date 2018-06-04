@@ -107,6 +107,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
                 try {
                     val bmp = getBitmapFromUri(uri)
+                    tweetViewModel?.isSelectedImage = true
                 } catch (e: IOException) {
                     e.printStackTrace()
                 }
