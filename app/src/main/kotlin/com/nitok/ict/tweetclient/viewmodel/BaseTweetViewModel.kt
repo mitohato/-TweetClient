@@ -12,6 +12,13 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     var selectImageNum: Int = 0
 
     @Bindable
+    var selectableImage: Boolean = true
+        get() {
+            notifyChange()
+            return selectImageNum < 4
+        }
+
+    @Bindable
     var tweetText: String = ""
         set(value) {
             field = value
