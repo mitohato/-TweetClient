@@ -54,6 +54,7 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/ic_collections_light_green_300_36dp"
                 android:contentDescription="@string/select_image"
+                android:enabled="@{viewmodel.selectableImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
