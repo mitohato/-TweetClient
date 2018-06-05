@@ -52,7 +52,7 @@
                 android:id="@+id/select_image_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@drawable/ic_collections_light_green_300_36dp"
+                android:background="@drawable/ic_collections_able_36dp"
                 android:contentDescription="@string/select_image"
                 android:enabled="@{viewmodel.selectableImage}"
                 app:layout_constraintBottom_toBottomOf="parent"
