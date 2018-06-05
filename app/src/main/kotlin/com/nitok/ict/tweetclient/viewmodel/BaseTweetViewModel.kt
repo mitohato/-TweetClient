@@ -27,9 +27,11 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     @Bindable
     var tweetable: Boolean = false
-        get() =
-            tweetText.length in 1..140 ||
+        get() {
+            notifyChange()
+            return tweetText.length in 1..140 ||
                 selectImageNum != 0
+        }
 
     @Bindable
     var tweetLength: String = ""
