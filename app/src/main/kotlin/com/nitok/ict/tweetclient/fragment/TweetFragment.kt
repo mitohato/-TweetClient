@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import com.nitok.ict.tweetclient.R
 import com.nitok.ict.tweetclient.databinding.FragmentTweetBinding
@@ -36,7 +37,15 @@ class TweetFragment : Fragment() {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        setImageButton()
         setTweetButton()
+    }
+
+    private fun setImageButton() {
+        val imageButton: ImageButton? = activity?.findViewById(R.id.select_image_button)
+        imageButton?.setOnClickListener {
+            viewModel.selectImage()
+        }
     }
 
     private fun setTweetButton() {

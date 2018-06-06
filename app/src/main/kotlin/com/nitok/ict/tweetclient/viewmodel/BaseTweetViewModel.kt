@@ -9,6 +9,15 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     private var applicationContext: Context = context.applicationContext
 
+    var selectImageNum: Int = 0
+
+    @Bindable
+    var selectableImage: Boolean = true
+        get() {
+            notifyChange()
+            return selectImageNum < 4
+        }
+
     @Bindable
     var tweetText: String = ""
         set(value) {
@@ -18,7 +27,11 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     @Bindable
     var tweetable: Boolean = false
-        get() = tweetText.length in 1..140
+        get() {
+            notifyChange()
+            return tweetText.length in 1..140 ||
+                selectImageNum != 0
+        }
 
     @Bindable
     var tweetLength: String = ""
@@ -27,5 +40,8 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
     var icon: Drawable? = null
 
     open fun tweet(tweetText: String) {
+    }
+
+    open fun selectImage() {
     }
 }

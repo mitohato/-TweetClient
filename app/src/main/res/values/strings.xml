@@ -5,4 +5,9 @@
     <string name="icon">Icon</string>
     <string name="error_auth">認証エラー</string>
     <string name="error">error</string>
+    <string name="select_image">select image</string>
+    <string name="select_image1">select image1</string>
+    <string name="select_image2">select image2</string>
+    <string name="select_image3">select image3</string>
+    <string name="select_image4">select image4</string>
 </resources>
