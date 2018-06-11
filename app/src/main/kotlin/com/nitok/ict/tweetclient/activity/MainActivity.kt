@@ -21,6 +21,7 @@ import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
 import twitter4j.Twitter
 import twitter4j.TwitterException
+import java.io.File
 import java.io.IOException
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
@@ -123,6 +124,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             if (data != null) {
 
                 val uri = data.data
+                val media = twitter.uploadMedia(File(uri.toString()))
 
                 try {
                     val bmp = getBitmapFromUri(uri)
@@ -130,6 +132,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
                     // ここMVVM的にだいぶ黒に近いグレー
                     tweetViewModel?.let {
                         findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
+                        it.mediaIds[it.selectImageNum++] = media.mediaId
                         it.selectImageNum++
                     }
                 } catch (e: IOException) {
