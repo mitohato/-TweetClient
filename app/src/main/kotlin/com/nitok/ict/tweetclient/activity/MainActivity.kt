@@ -19,15 +19,19 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
+import twitter4j.Twitter
 import twitter4j.TwitterException
 import java.io.IOException
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
     private var tweetViewModel: TweetViewModel? = null
+    private lateinit var twitter: Twitter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        twitter = TwitterUtils.getTwitterInstance(this)
 
         if (!TwitterUtils.hasAccessToken(this)) {
             startActivity<TwitterOAuthActivity>()
@@ -80,7 +84,6 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
         setResult(TWEET_RESULT_OK)
-        val twitter = TwitterUtils.getTwitterInstance(this@MainActivity)
 
         try {
             twitter.updateStatus(tweetText)
