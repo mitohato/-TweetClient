@@ -76,7 +76,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             tweetFragment = TweetFragment.newInstance()
 
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.content_frame, tweetFragment)
+            transaction.add(
+                R.id.content_frame,
+                tweetFragment
+            )
             transaction.commit()
         }
 
@@ -124,7 +127,8 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             if (data != null) {
 
                 val uri = data.data
-                val media = twitter.uploadMedia(File(uri.toString()))
+                val file = File(uri.toString())
+                val media = twitter.uploadMedia(file)
 
                 try {
                     val bmp = getBitmapFromUri(uri)
