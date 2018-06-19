@@ -122,26 +122,24 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
         if (
             requestCode == RESULT_PICK_IMAGEFILE &&
-            resultCode == Activity.RESULT_OK
+            resultCode == Activity.RESULT_OK &&
+            data != null
         ) {
-            if (data != null) {
+            val uri = data.data
+            val file = File(uri.toString())
+            val media = twitter.uploadMedia(file)
 
-                val uri = data.data
-                val file = File(uri.toString())
-                val media = twitter.uploadMedia(file)
+            try {
+                val bmp = getBitmapFromUri(uri)
 
-                try {
-                    val bmp = getBitmapFromUri(uri)
-
-                    // ここMVVM的にだいぶ黒に近いグレー
-                    tweetViewModel?.let {
-                        findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
-                        it.mediaIds[it.selectImageNum++] = media.mediaId
-                        it.selectImageNum++
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
+                // ここMVVM的にだいぶ黒に近いグレー
+                tweetViewModel?.let {
+                    findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
+                    it.mediaIds[it.selectImageNum++] = media.mediaId
+                    it.selectImageNum++
                 }
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
         }
     }
