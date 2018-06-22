@@ -14,8 +14,8 @@ class TweetViewModel(context: Context) : BaseTweetViewModel(context) {
         tweetNavigator = null
     }
 
-    override fun tweet(tweetText: String) {
-        super.tweet(tweetText)
+    override fun tweet() {
+        super.tweet()
         tweetNavigator?.onPostTweet(tweetText)
     }
 
