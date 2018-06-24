@@ -39,7 +39,7 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     var icon: Drawable? = null
 
-    var mediaIds: Array<Long?> = arrayOfNulls(4)
+    var mediaIds: LongArray = LongArray(4)
 
     open fun tweet() {
     }
