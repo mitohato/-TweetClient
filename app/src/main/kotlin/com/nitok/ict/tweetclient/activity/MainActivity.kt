@@ -86,6 +86,17 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         return tweetFragment
     }
 
+    private fun setMediaIds(statusUpdate: StatusUpdate, mediaIds: LongArray?): StatusUpdate {
+        if (mediaIds == null) {
+            return statusUpdate
+        }
+
+        for (id in mediaIds) {
+            statusUpdate.setMediaIds(id)
+        }
+
+    }
+
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
         setResult(TWEET_RESULT_OK)
 
