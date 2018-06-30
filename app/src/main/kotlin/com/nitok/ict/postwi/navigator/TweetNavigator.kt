@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient.navigator
+package com.nitok.ict.postwi.navigator
 
 import kotlinx.coroutines.experimental.Deferred
 

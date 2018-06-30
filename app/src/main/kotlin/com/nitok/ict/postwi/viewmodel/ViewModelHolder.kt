@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.nitok.ict.tweetclient.viewmodel
+package com.nitok.ict.postwi.viewmodel
 
 import android.os.Bundle
 

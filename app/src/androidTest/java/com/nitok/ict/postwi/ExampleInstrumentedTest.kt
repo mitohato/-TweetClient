@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient
+package com.nitok.ict.postwi
 
 import androidx.test.InstrumentationRegistry
 import androidx.test.runner.AndroidJUnit4

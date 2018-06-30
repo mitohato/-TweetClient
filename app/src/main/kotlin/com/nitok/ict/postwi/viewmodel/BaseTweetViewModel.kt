@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient.viewmodel
+package com.nitok.ict.postwi.viewmodel
 
 import android.content.Context
 import android.graphics.drawable.Drawable

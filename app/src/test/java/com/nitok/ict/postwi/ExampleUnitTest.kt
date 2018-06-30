@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient
+package com.nitok.ict.postwi
 
 import org.junit.Test
 

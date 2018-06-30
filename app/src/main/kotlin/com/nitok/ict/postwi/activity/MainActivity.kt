@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient.activity
+package com.nitok.ict.postwi.activity
 
 import android.app.Activity
 import android.content.Intent
@@ -8,13 +8,13 @@ import android.net.Uri
 import android.os.Bundle
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
-import com.nitok.ict.tweetclient.R
-import com.nitok.ict.tweetclient.fragment.TweetFragment
-import com.nitok.ict.tweetclient.navigator.TweetNavigator
-import com.nitok.ict.tweetclient.utils.ActivityUtils
-import com.nitok.ict.tweetclient.utils.TwitterUtils
-import com.nitok.ict.tweetclient.viewmodel.TweetViewModel
-import com.nitok.ict.tweetclient.viewmodel.ViewModelHolder
+import com.nitok.ict.postwi.R
+import com.nitok.ict.postwi.fragment.TweetFragment
+import com.nitok.ict.postwi.navigator.TweetNavigator
+import com.nitok.ict.postwi.utils.ActivityUtils
+import com.nitok.ict.postwi.utils.TwitterUtils
+import com.nitok.ict.postwi.viewmodel.TweetViewModel
+import com.nitok.ict.postwi.viewmodel.ViewModelHolder
 import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async

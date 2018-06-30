@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient.activity
+package com.nitok.ict.postwi.activity
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,8 +6,8 @@ import android.net.Uri
 import android.os.AsyncTask
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.nitok.ict.tweetclient.R
-import com.nitok.ict.tweetclient.utils.TwitterUtils
+import com.nitok.ict.postwi.R
+import com.nitok.ict.postwi.utils.TwitterUtils
 import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import twitter4j.Twitter

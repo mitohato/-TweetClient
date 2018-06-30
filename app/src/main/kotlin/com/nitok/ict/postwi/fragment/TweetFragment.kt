@@ -1,4 +1,4 @@
-package com.nitok.ict.tweetclient.fragment
+package com.nitok.ict.postwi.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,9 +7,9 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
-import com.nitok.ict.tweetclient.R
-import com.nitok.ict.tweetclient.databinding.FragmentTweetBinding
-import com.nitok.ict.tweetclient.viewmodel.TweetViewModel
+import com.nitok.ict.postwi.R
+import com.nitok.ict.postwi.databinding.FragmentTweetBinding
+import com.nitok.ict.postwi.viewmodel.TweetViewModel
 
 class TweetFragment : Fragment() {
     private lateinit var viewModel: TweetViewModel

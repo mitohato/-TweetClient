@@ -1,7 +1,7 @@
-package com.nitok.ict.tweetclient.viewmodel
+package com.nitok.ict.postwi.viewmodel
 
 import android.content.Context
-import com.nitok.ict.tweetclient.navigator.TweetNavigator
+import com.nitok.ict.postwi.navigator.TweetNavigator
 
 class TweetViewModel(context: Context) : BaseTweetViewModel(context) {
     private var tweetNavigator: TweetNavigator? = null
