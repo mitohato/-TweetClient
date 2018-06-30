@@ -19,6 +19,7 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
+import twitter4j.StatusUpdate
 import twitter4j.Twitter
 import twitter4j.TwitterException
 import java.io.File
@@ -101,8 +102,13 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
         setResult(TWEET_RESULT_OK)
 
+        val statusUpdate = if (tweetViewModel?.selectImageNum ?: 0 < 0) {
+            setMediaIds(StatusUpdate(tweetText), tweetViewModel?.mediaIds)
+        } else {
+            StatusUpdate(tweetText)
+        }
         try {
-            twitter.updateStatus(tweetText)
+            twitter.updateStatus(statusUpdate)
         } catch (e: TwitterException) {
             e.printStackTrace()
         }
