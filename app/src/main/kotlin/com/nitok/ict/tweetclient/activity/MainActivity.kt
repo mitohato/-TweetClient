@@ -160,7 +160,6 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
                 tweetViewModel?.let {
                     findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
                     it.mediaIds[it.selectImageNum++] = media.mediaId
-                    it.selectImageNum++
                 }
             } catch (e: IOException) {
                 e.printStackTrace()
