@@ -95,6 +95,7 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             statusUpdate.setMediaIds(id)
         }
 
+        return statusUpdate
     }
 
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
