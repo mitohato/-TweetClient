@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TweetClient</string>
+    <string name="app_name">PosTwi</string>
     <string name="tweet_jp">ツイート</string>
     <string name="tweet_en">tweet</string>
     <string name="icon">Icon</string>
