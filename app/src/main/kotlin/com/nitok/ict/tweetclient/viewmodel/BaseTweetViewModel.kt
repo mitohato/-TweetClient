@@ -39,7 +39,9 @@ abstract class BaseTweetViewModel(context: Context) : BaseObservable() {
 
     var icon: Drawable? = null
 
-    open fun tweet(tweetText: String) {
+    var mediaIds: LongArray = LongArray(4)
+
+    open fun tweet() {
     }
 
     open fun selectImage() {

@@ -19,15 +19,21 @@ import kotlinx.coroutines.experimental.CommonPool
 import kotlinx.coroutines.experimental.Deferred
 import kotlinx.coroutines.experimental.async
 import org.jetbrains.anko.startActivity
+import twitter4j.StatusUpdate
+import twitter4j.Twitter
 import twitter4j.TwitterException
+import java.io.File
 import java.io.IOException
 
 class MainActivity : AppCompatActivity(), TweetNavigator {
     private var tweetViewModel: TweetViewModel? = null
+    private lateinit var twitter: Twitter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        twitter = TwitterUtils.getTwitterInstance(this)
 
         if (!TwitterUtils.hasAccessToken(this)) {
             startActivity<TwitterOAuthActivity>()
@@ -71,19 +77,44 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
             tweetFragment = TweetFragment.newInstance()
 
             val transaction = supportFragmentManager.beginTransaction()
-            transaction.add(R.id.content_frame, tweetFragment)
+            transaction.add(
+                R.id.content_frame,
+                tweetFragment
+            )
             transaction.commit()
         }
 
         return tweetFragment
     }
 
+    private fun setMediaIds(
+        statusUpdate: StatusUpdate,
+        mediaIds: LongArray?
+    ): StatusUpdate {
+        if (mediaIds == null) {
+            return statusUpdate
+        }
+
+        for (id in mediaIds) {
+            statusUpdate.setMediaIds(id)
+        }
+
+        return statusUpdate
+    }
+
     override fun onPostTweet(tweetText: String): Deferred<Unit> = async(CommonPool) {
         setResult(TWEET_RESULT_OK)
-        val twitter = TwitterUtils.getTwitterInstance(this@MainActivity)
 
+        val statusUpdate = if (tweetViewModel?.selectImageNum ?: 0 < 0) {
+            setMediaIds(
+                StatusUpdate(tweetText),
+                tweetViewModel?.mediaIds
+            )
+        } else {
+            StatusUpdate(tweetText)
+        }
         try {
-            twitter.updateStatus(tweetText)
+            twitter.updateStatus(statusUpdate)
         } catch (e: TwitterException) {
             e.printStackTrace()
         }
@@ -115,23 +146,23 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
 
         if (
             requestCode == RESULT_PICK_IMAGEFILE &&
-            resultCode == Activity.RESULT_OK
+            resultCode == Activity.RESULT_OK &&
+            data != null
         ) {
-            if (data != null) {
+            val uri = data.data
+            val file = File(uri.toString())
+            val media = twitter.uploadMedia(file)
 
-                val uri = data.data
+            try {
+                val bmp = getBitmapFromUri(uri)
 
-                try {
-                    val bmp = getBitmapFromUri(uri)
-
-                    // ここMVVM的にだいぶ黒に近いグレー
-                    tweetViewModel?.let {
-                        findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
-                        it.selectImageNum++
-                    }
-                } catch (e: IOException) {
-                    e.printStackTrace()
+                // ここMVVM的にだいぶ黒に近いグレー
+                tweetViewModel?.let {
+                    findViewById<ImageView>(imageId[it.selectImageNum]).setImageBitmap(bmp)
+                    it.mediaIds[it.selectImageNum++] = media.mediaId
                 }
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
         }
     }
