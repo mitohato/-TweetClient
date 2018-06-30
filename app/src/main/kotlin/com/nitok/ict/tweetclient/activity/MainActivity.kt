@@ -87,7 +87,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         return tweetFragment
     }
 
-    private fun setMediaIds(statusUpdate: StatusUpdate, mediaIds: LongArray?): StatusUpdate {
+    private fun setMediaIds(
+        statusUpdate: StatusUpdate,
+        mediaIds: LongArray?
+    ): StatusUpdate {
         if (mediaIds == null) {
             return statusUpdate
         }
@@ -103,7 +106,10 @@ class MainActivity : AppCompatActivity(), TweetNavigator {
         setResult(TWEET_RESULT_OK)
 
         val statusUpdate = if (tweetViewModel?.selectImageNum ?: 0 < 0) {
-            setMediaIds(StatusUpdate(tweetText), tweetViewModel?.mediaIds)
+            setMediaIds(
+                StatusUpdate(tweetText),
+                tweetViewModel?.mediaIds
+            )
         } else {
             StatusUpdate(tweetText)
         }
